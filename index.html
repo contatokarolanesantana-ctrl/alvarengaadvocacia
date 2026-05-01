@@ -1,1 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Alvarenga Advocacia. Atuação em Direito Previdenciário e Direito do Consumidor. Atendimento em todo o Brasil." />
+  <title>Alvarenga Advocacia | Direito Previdenciário e Consumidor</title>
+  <style>
+    :root{
+      --bg:#070b15;
+      --card:rgba(17, 24, 45, 0.75);
+      --text:#e8ecf6;
+      --muted:#b8c0d6;
+      --line:rgba(255,255,255,.08);
+      --gold:#d6c28a;
+      --gold-dark:#b29b65;
+      --accent:#1f3c88;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: 
+        linear-gradient(rgba(7, 11, 21, 0.92), rgba(7, 11, 21, 0.92)), 
+        url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2070'); 
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.8;
+    }
 
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1100px,92%);margin:0 auto}
+
+    /* Topbar */
+    .topbar{
+      padding:18px 0;
+      border-bottom:1px solid var(--line);
+      backdrop-filter: blur(15px);
+      position:sticky;
+      top:0;
+      background:rgba(7,11,21,.85);
+      z-index:100;
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .nav-links{
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .nav-links a:hover{color:var(--gold)}
+
+    /* Estilo de Logo */
+    .logo-container {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .logo-text {
+      display: inline-block;
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding: 15px 30px;
+    }
+    .logo-main {
+      display: block;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      letter-spacing: 12px;
+      color: var(--gold);
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .logo-sub {
+      display: block;
+      font-size: 0.85rem;
+      letter-spacing: 5px;
+      color: var(--text);
+      text-transform: uppercase;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Hero Section */
+    .hero{
+      padding: 80px 0 60px;
+      text-align:center;
+    }
+    .hero h1{
+      font-size:clamp(1.8rem, 4vw, 3rem);
+      line-height:1.2;
+      max-width:900px;
+      margin:0 auto 24px;
+      font-weight: normal;
+      font-style: italic;
+    }
+    .hero p{
+      max-width:750px;
+      margin:0 auto 30px;
+      color:var(--muted);
+      font-size:1.1rem;
+    }
+    .cta{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      padding:15px 30px;
+      border-radius:4px;
+      font-size:.9rem;
+      transition:.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+    .btn.primary{
+      background: var(--gold);
+      color: #000;
+      border: none;
+      font-weight: bold;
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      background: var(--gold-dark);
+      color: #fff;
+    }
+
+    /* Seções e Cards */
+    section{padding:80px 0}
+    .section-title{
+      font-size:clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom:20px;
+      color: var(--gold);
+      text-align: center;
+    }
+    .section-sub{
+      text-align: center;
+      color:var(--muted);
+      max-width:700px;
+      margin: 0 auto 40px;
+    }
+    
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+      gap:25px;
+    }
+    
+    .card{
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+    }
+    .card:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+    .card h3{
+      font-size:1.4rem;
+      margin-bottom:15px;
+      color:var(--gold);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+    
+    .list{
+      margin-top:20px;
+      padding-left:18px;
+      list-style-type: square;
+    }
+    .list li{margin-bottom:10px; color: var(--muted)}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:40px;
+      align-items: center;
+    }
+
+    /* Contato */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 30px;
+    }
+    .contact-item{
+      margin-bottom: 25px;
+    }
+    .label{
+      display:block;
+      font-size:.75rem;
+      color:var(--gold);
+      margin-bottom:8px;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+
+    iframe{
+      width:100%;
+      height:400px;
+      border:0;
+      border-radius:4px;
+      filter: grayscale(0.6) invert(0.9) contrast(1.2);
+    }
+
+    footer{
+      padding:60px 0;
+      background: rgba(0,0,0,0.5);
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      text-align:center;
+    }
+
+    .whatsapp-float{
+      position:fixed;
+      right:25px;
+      bottom:25px;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      background:#25D366;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.5);
+      z-index:1000;
+      transition: 0.3s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); }
+
+    @media (max-width: 850px){
+      .split, .contact-grid{grid-template-columns:1fr}
+      .nav{flex-direction:column; text-align: center}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container nav">
+      <div style="color:var(--gold); font-weight:bold; letter-spacing:2px;">ALVARENGA</div>
+  <div class="nav-links">
+  <a href="#">Início</a>
+  <a href="#sobre">Escritório</a>
+  <a href="#areas">Atuação</a>
+  <a href="#advogado">Sobre</a>
+  <a href="#contato">Contato</a>
+</div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container">
+      <div class="logo-container">
+        <div class="logo-text">
+          <span class="logo-main">Alvarenga</span>
+          <span class="logo-sub">Advocacia Especializada</span>
+        </div>
+      </div>
+
+      <h1>Defesa estratégica e compromisso ético com seus direitos.</h1>
+      <p>
+        Atendimento jurídico personalizado em Direito Previdenciário e do Consumidor, 
+        focado em transparência e resultados seguros, com atuação em Seropédica e em todo o Brasil.
+      </p>
+
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/5521999421419">Agendar Consulta</a>
+        <a class="btn secondary" href="#areas">Áreas de Atuação</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <div class="container">
+      <div class="card">
+        <div class="split">
+          <div>
+            <h2 class="section-title" style="text-align: left;">O Escritório</h2>
+            <p>O Alvarenga Advocacia nasceu com o propósito de oferecer uma advocacia técnica, porém humana. Entendemos que por trás de cada processo existe uma vida e uma necessidade urgente.</p>
+            <br>
+            <p>Com sede em Seropédica, atuamos de forma incisiva para garantir que nossos clientes tenham acesso pleno aos seus direitos, seja perante o INSS ou em conflitos com grandes empresas e fornecedores.</p>
+          </div>
+          <div style="text-align: center; border-left: 1px solid var(--line); padding-left: 20px;">
+             <p style="font-style: italic; font-size: 1.2rem; color: var(--gold);">"Ética, sigilo e excelência técnica são os pilares que sustentam cada defesa que assumimos."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="areas" style="background: rgba(0,0,0,0.2);">
+    <div class="container">
+      <h2 class="section-title">Especialidades</h2>
+      <p class="section-sub">Soluções jurídicas focadas no que realmente importa para você.</p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Direito Previdenciário</h3>
+          <p>Apoio completo para garantir sua tranquilidade no futuro:</p>
+          <ul class="list">
+            <li>Aposentadorias (Idade, Tempo, Especial)</li>
+            <li>BPC / LOAS</li>
+            <li>Auxílio-Doença e Pensão por Morte</li>
+            <li>Planejamento Previdenciário</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Direito do Consumidor</h3>
+          <p>Proteção contra abusos e práticas ilegais:</p>
+          <ul class="list">
+            <li>Indenizações por Danos Morais</li>
+            <li>Cobranças Indevidas e Negativação</li>
+            <li>Problemas com Bancos e Telefonia</li>
+            <li>Ações de Revisão Contratual</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="advogado">
+  <div class="container">
+    <h2 class="section-title">O Advogado</h2>
+    <p class="section-sub">Conheça o profissional responsável pelo seu atendimento.</p>
+
+    <div class="card">
+      <div class="split">
+
+        <!-- FOTO -->
+        <div style="text-align:center;">
+  <img src="https://i.ibb.co/whDcR7kj/lucas.jpg"
+       alt="Lucas Costa"
+       style="width:100%; max-width:280px; border-radius:6px; border:2px solid var(--gold);">
+
+        </div>
+
+        <!-- TEXTO -->
+        <div>
+          <h3 style="color: var(--gold); margin-bottom: 10px;">Lucas Costa</h3>
+
+          <p style="color: var(--gold); font-weight: bold; margin-bottom: 15px;">
+            OAB/RJ 231.646
+          </p>
+
+          <p>
+            Advogado com atuação focada em <strong>Direito do Consumidor</strong> e 
+            <strong>Direito Previdenciário</strong>, oferecendo atendimento direto, estratégico 
+            e transparente para cada cliente.
+          </p>
+
+          <br>
+
+          <p>
+            Atua também como <strong>Perito Judicial Grafotécnico</strong>, realizando análises 
+            técnicas com precisão e responsabilidade.
+          </p>
+
+          <br>
+
+          <p>
+            Possui <strong>8 anos de experiência</strong> na área jurídica, com atuação pautada 
+            na ética, comprometimento e busca pelos melhores resultados.
+          </p>
+
+          <br>
+
+          <p style="font-style: italic; color: var(--gold);">
+            "Atendimento sério, transparente e totalmente dedicado ao cliente."
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <section id="contato">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="card">
+          <h2 class="section-title" style="text-align: left;">Localização</h2>
+          
+          <div class="contact-item">
+            <span class="label">Telefone & WhatsApp</span>
+            <a href="https://wa.me/5521999421419" style="font-size: 1.2rem; color: var(--gold); font-weight: bold;">(21) 99942-1419</a>
+          </div>
+
+          <div class="contact-item">
+            <span class="label">Endereço</span>
+            <p>Rua Rita Batista, 36, sala 201<br>Km 40, Campo Lindo - Seropédica/RJ</p>
+            <p style="color: var(--gold); font-size: 0.9rem; margin-top: 5px;">(Localizado em cima da sorveteria Eskimó)</p>
+          </div>
+
+          <div class="contact-item">
+            <span class="label">Horário</span>
+            <p>Atendimento exclusivo com hora marcada.</p>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 10px;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.11822851493!2d-43.7088484!3d-22.7980597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9be2243d5f190d%3A0x7d65451c070c7937!2sR.%20Rita%20Batista%2C%2036%20-%20Campo%20Lindo%2C%20Serop%C3%A9dica%20-%20RJ%2C%2023894-495!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr" 
+            allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p style="color: var(--gold); margin-bottom: 10px; letter-spacing: 2px;">ALVARENGA ADVOCACIA</p>
+      <p>© 2026 Todos os direitos reservados em todo o Brasil</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/5521999421419" target="_blank">
+    <svg fill="#fff" width="35px" height="35px" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.875 1.215 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.675 1.439 5.662 1.439h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+</body>
+</html>
